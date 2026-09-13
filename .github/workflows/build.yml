@@ -7,6 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,6 +20,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+          cache: sbt
 
       - name: Setup SBT
         uses: sbt/setup-sbt@v1
@@ -23,8 +28,28 @@ jobs:
       - name: Build with SBT
         run: sbt -v package
 
+      - name: Prepare JAR for Docker
+        run: |
+          JAR=$(find target -type f -name "*.jar" | head -n 1)
+          cp "$JAR" app.jar
+
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: application-jar
           path: target/**/*.jar
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/${{ github.repository }}:latest
