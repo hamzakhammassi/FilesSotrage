@@ -17,11 +17,8 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Steup SBT
-        uses: |
-          coursier/setup-action@v3
-          with:
-            apps: sbt
+      - name: Setup SBT
+        uses: sbt/setup-sbt@v1
 
       - name: Build with SBT
-        run: sbt package
+        run: sbt -v package
