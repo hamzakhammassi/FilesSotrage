@@ -1,4 +1,4 @@
-name := "FilesSotrage"
+name := "filesreorg"
 
 version := "0.1"
 

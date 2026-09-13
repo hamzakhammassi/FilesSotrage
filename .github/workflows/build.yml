@@ -3,7 +3,7 @@ name: Build JAR
 on:
   push:
 env:
-  IMAGE_NAME: ghcr.io/hamzakhammassi/filestorage:latest
+  IMAGE_NAME: ghcr.io/hamzakhammassi/filesreorg:latest
 
 jobs:
   build:
