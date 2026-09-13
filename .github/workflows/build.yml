@@ -33,7 +33,7 @@ jobs:
       - name: Prepare JAR for Docker
         run: |
           JAR=$(find target -type f -name "*.jar" | head -n 1)
-          cp "$JAR"app.jar
+          cp "$JAR" app.jar
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
