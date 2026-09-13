@@ -2,8 +2,6 @@ name: Build JAR
 
 on:
   push:
-env:
-  IMAGE_NAME: ghcr.io/hamzakhammassi/filesreorg:latest
 
 jobs:
   build:
@@ -50,8 +48,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t $IMAGE_NAME .
+          docker build -t ghcr.io/${{ github.repository }}:latest .
 
       - name: Push Docker image
         run: |
-          docker push IMAGE_NAME
+          docker push ghcr.io/${{ github.repository }}:latest
