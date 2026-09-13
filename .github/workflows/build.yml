@@ -18,7 +18,7 @@ jobs:
           java-version: '17'
 
       - name: Setup SBT
-        uses: sbt/setup-sbt@V1
-        
+        uses: sbt/setup-sbt@V4
+
       - name: Build with SBT
         run: sbt package
