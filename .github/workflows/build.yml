@@ -17,8 +17,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup SBT
-        uses: sbt/setup-sbt@V4
+      - name: Install SBT
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sbt
 
       - name: Build with SBT
         run: sbt package
