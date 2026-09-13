@@ -19,7 +19,7 @@ jobs:
 
       - name: Steup SBT
         uses: |
-          coursier/setup-action@v1
+          coursier/setup-action@v3
           with:
             apps: sbt
 
