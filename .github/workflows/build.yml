@@ -19,8 +19,12 @@ jobs:
 
       - name: Install SBT
         run: |
-          sudo apt-get update
-          sudo apt-get install -y sbt
+          curl -L https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > sbt
+          chmod +x sbt
+          sudo mv sbt /usr/local/bin/sbt
+
+      - name: Check SBT
+        run: sbt --version
 
       - name: Build with SBT
         run: sbt package
