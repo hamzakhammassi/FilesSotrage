@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: pureconfig-core_2.13-0.14.0.jar logback-core-1.2.3.jar confi
+ g-1.4.0.jar scala-library-2.13.4.jar pureconfig_2.13-0.14.0.jar slf4j-a
+ pi-1.7.25.jar pureconfig-macros_2.13-0.14.0.jar commons-io-2.5.jar pure
+ config-generic_2.13-0.14.0.jar logback-classic-1.2.3.jar shapeless_2.13
+ -2.3.3.jar pureconfig-generic-base_2.13-0.14.0.jar
+

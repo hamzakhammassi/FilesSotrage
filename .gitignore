@@ -1,0 +1,11 @@
+.env
+.env.*
+.venv
+node_modules/
+__pychache__/
+*.log
+.bsp/
+.idea/
+null/
+target/
+out/
