@@ -17,11 +17,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Install SBT
+      - name: Install SBT launcher
         run: |
-          curl -L https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > sbt
+          curl -L -o sbt-launcher.jar https://repo1.maven.org/maven2/org/scala-sbt/sbtlaunch/1.4.7/sbt-launch-1.4.7.jar
           chmod +x sbt
           sudo mv sbt /usr/local/bin/sbt
 
-      - name: Build with SBT
-        run: sbt package
+      - name: Build
+        run: java -jar sbt-launch.jar package
