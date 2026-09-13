@@ -17,10 +17,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Install SBT launcher
-        run: |
-          curl -L -o sbt-launch.jar https://repo1.maven.org/maven2/org/scala-sbt/sbtlaunch/1.4.7/sbt-launch-1.4.7.jar -o sbt-launch.jar
-          ls -lh sbt-launch.jar
+      - name: Steup SBT
+        uses: |
+          coursier/setup-action@v1
+          with:
+            apps: sbt
 
       - name: Build with SBT
-        run: java -jar sbt-launch.jar package
+        run: sbt package
