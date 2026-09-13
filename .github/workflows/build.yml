@@ -20,8 +20,6 @@ jobs:
       - name: Install SBT launcher
         run: |
           curl -L -o sbt-launcher.jar https://repo1.maven.org/maven2/org/scala-sbt/sbtlaunch/1.4.7/sbt-launch-1.4.7.jar
-          chmod +x sbt
-          sudo mv sbt /usr/local/bin/sbt
 
-      - name: Build
+      - name: Build with SBT
         run: java -jar sbt-launch.jar package
